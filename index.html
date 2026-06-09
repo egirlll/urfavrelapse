@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>urfavrelapse ~ ur new fav addiction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            border: 3px solid #ff1493;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(255, 20, 147, 0.05);
+        }
+
+        .avatar {
+            margin-bottom: 30px;
+        }
+
+        .avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ff1493;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+        }
+
+        h1 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #ff1493;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 20, 147, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 20, 147, 0.2);
+            color: #ff1493;
+            border: 2px solid #ff1493;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 20, 147, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .crypto-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .crypto-btn {
+            width: 100%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: rgba(30, 30, 50, 0.95);
+            min-width: 100%;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            border-radius: 8px;
+            border: 2px solid #ff1493;
+            margin-top: 5px;
+        }
+
+        .dropdown-content.active {
+            display: block;
+        }
+
+        .dropdown-content button {
+            padding: 12px 20px;
+            width: 100%;
+            border: none;
+            background: none;
+            color: #ff1493;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content button:first-child {
+            border-radius: 6px 6px 0 0;
+        }
+
+        .dropdown-content button:last-child {
+            border-radius: 0 0 6px 6px;
+        }
+
+        .dropdown-content button:hover {
+            background: rgba(255, 20, 147, 0.2);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 20, 147, 0.1);
+            color: #ff1493;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .social-icon:hover {
+            background: #ff1493;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            .avatar img {
+                width: 120px;
+                height: 120px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="avatar">
+            <img src="pfp.jpg" alt="urfavrelapse">
+        </div>
+
+        <div class="social-icons">
+            <a href="https://x.com/urfavrelapse" class="social-icon" title="Twitter">𝕏</a>
+        </div>
+
+        <h1>urfavrelapse</h1>
+        <p class="subtitle">Ur new fav addiction 💕</p>
+
+        <div class="links">
+            <button class="btn btn-primary" onclick="navigate('throne')">Throne</button>
+
+            <div class="crypto-dropdown" onclick="toggleDropdown()">
+                <button class="btn btn-primary crypto-btn">Crypto ▼</button>
+                <div class="dropdown-content" id="cryptoMenu">
+                    <button onclick="copyAddress('BTC')">Bitcoin</button>
+                    <button onclick="copyAddress('ETH')">Ethereum</button>
+                    <button onclick="copyAddress('SOL')">Solana</button>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary" onclick="navigate('write')">Write For Me</button>
+        </div>
+
+        <div class="footer">
+            <p>you won't stop after one 💋</p>
+        </div>
+    </div>
+
+    <script>
+        const links = {
+            throne: '#',
+            write: '#'
+        };
+
+        const cryptoAddresses = {
+            BTC: 'ADDRESS_HERE',
+            ETH: 'ADDRESS_HERE',
+            SOL: 'ADDRESS_HERE'
+        };
+
+        function navigate(type) {
+            const link = links[type];
+            if (link === '#') {
+                alert('Link not configured yet ~ dm @urfavrelapse');
+                return;
+            }
+            window.location.href = link;
+        }
+
+        function toggleDropdown() {
+            const menu = document.getElementById('cryptoMenu');
+            menu.classList.toggle('active');
+        }
+
+        function copyAddress(crypto) {
+            const addr = cryptoAddresses[crypto];
+            if (addr === 'ADDRESS_HERE') {
+                alert('Address not set yet ~ dm @urfavrelapse');
+                return;
+            }
+            navigator.clipboard.writeText(addr).then(() => {
+                alert(crypto + ' address copied!');
+            });
+        }
+
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.crypto-dropdown');
+            if (!dropdown.contains(event.target)) {
+                document.getElementById('cryptoMenu').classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
